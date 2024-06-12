@@ -1,0 +1,8 @@
+AlarmName: DataProcessingError
+MetricName: ETLJobFailures
+Namespace: AdvertiseX
+Statistic: Sum
+Period: 300
+EvaluationPeriods: 1
+Threshold: 1
+ComparisonOperator: Greater

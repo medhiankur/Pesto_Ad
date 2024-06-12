@@ -1,0 +1,20 @@
+from airflow import DAG
+from airflow.operators.dummy import DummyOperator
+from airflow.operators.python import PythonOperator
+
+def process_data():
+    try:
+        # ETL processing code
+        pass
+    except Exception as e:
+        # Log error
+        print(f"Error: {e}")
+        raise
+
+dag = DAG('advertiseX_etl', schedule_interval='@hourly')
+
+start = DummyOperator(task_id='start', dag=dag)
+process = PythonOperator(task_id='process_data', python_callable=process_data, dag=dag)
+end = DummyOperator(task_id='end', dag=dag)
+
+start >> process >> end

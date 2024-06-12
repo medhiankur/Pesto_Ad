@@ -1,0 +1,14 @@
+1.
+CREATE TABLE ad_performance (
+    ad_creative_id VARCHAR(255),
+    user_id VARCHAR(255),
+    event_timestamp TIMESTAMP,
+    event_type VARCHAR(50),
+    website VARCHAR(255),
+    campaign_id VARCHAR(255)
+)
+
+2.
+CREATE INDEX idx_campaign_id ON ad_performance (campaign_id);
+VACUUM ad_performance;
+ANALYZE ad_performance;
